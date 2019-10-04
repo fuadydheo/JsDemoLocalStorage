@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Latihan4</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="jquery-3.4.1.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <p>Local Storage Demo</p>
+        <br>
+        <p>
+            <button class="btn btn-primary" id="btn">Simpan</button>
+        </p>
+        <p>
+            <button class="btn btn-primary" id="btn2">Buka</button>
+        </p>
+        <p>
+            Hasil: <span id="hasil"></span>
+        </p>
+    </div>
+
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            //simpan local storage
+            window.localStorage.setItem("username","dheo");
+            //data json
+            var json ={
+                id: 10,
+                nama: "mr.abc",
+                email: "abc@gamil.com"
+            }
+            window.localStorage.setItem("json" ,JSON.stringify(json));
+            $("#hasil").text("Data telah disimpan");
+
+            window.location = "index2.html"; //pindah halaman
+        });
+
+        $("#btn2").click(function () {
+         //baca local storage
+         var username = window.localStorage.getItem("username");
+         var json = window.localStorage.getItem("json");
+         var obj_json = JSON.parse(json);
+         console.log(obj_json);
+         console.log(obj_json.nama);
+
+         $("#hasil").text(username);
+        });
+
+    });
+</script>
+
+</html>

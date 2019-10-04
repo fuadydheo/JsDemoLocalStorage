@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Latihan5</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <p>Local Storage Demo</p>
+        <br>
+        <p>
+            Hasil: <span id="hasil"></span>
+        </p>
+        <p>
+            Hasil: <span id="hasil2"></span>
+        </p>
+    </div>
+</body>
+
+<script>
+
+    $(document).ready(function () {
+        //baca local storage
+        var username = window.localStorage.getItem("username");
+        var json = window.localStorage.getItem("json");
+        var obj_json = JSON.parse(json);
+        console.log(obj_json);
+
+
+        $("#hasil").text(username);
+        $("#hasil2").text(json);
+    });
+
+</script>
+
+</html>
